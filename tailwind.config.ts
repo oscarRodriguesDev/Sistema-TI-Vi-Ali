@@ -6,6 +6,7 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: "class", // Use "media" para modo escuro baseado no sistema ou "class" para controle com classes
   theme: {
     extend: {
       backgroundImage: {
@@ -13,8 +14,17 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      colors: {
+        // Definindo cores para o tema escuro
+        dark: {
+          background: "#1a1a1a",
+          text: "#e5e5e5",
+        },
+      },
     },
   },
   plugins: [],
 };
+
 export default config;
+
