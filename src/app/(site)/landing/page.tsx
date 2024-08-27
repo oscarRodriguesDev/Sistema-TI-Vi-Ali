@@ -1,15 +1,27 @@
-const Site = ()=>{
-    return (
-        <>
-        <h1>cabeçalho</h1>
-        <h2>hero</h2>
-        <h2>Beneficios e recursos</h2>
-        <h2>Prova social</h2>
-        <h2>Chamada para ação cta</h2>
-        <h2>contatos</h2>
-        <h3>Rodape</h3>
+'use client'
+import { Header } from "./componentes/cabeçaho"
+import { Hero } from "./componentes/hero"
+import { Resources } from "./componentes/resources"
+import { Contatos } from "./componentes/contact"
+import { CTA } from "./componentes/cta"
+import { Social } from "./componentes/social"
+import { Footer } from "./componentes/footer"
+import { Title } from "./componentes/title"
 
-        </>
+
+const Site = () => {
+    return (
+        <div>
+            <Header />
+            <Title />
+            <Hero />
+            <Resources />
+            <Contatos />
+            <CTA />
+            <Social />
+            <Footer />
+
+        </div>
     )
 }
 

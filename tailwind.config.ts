@@ -15,7 +15,8 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       colors: {
-        // Definindo cores para o tema escuro
+        primary: '#1a73e8', // Definindo uma cor primária personalizada
+        secondary: '#ff7043', // Definindo uma cor secundária personalizada
         dark: {
           background: "#1a1a1a",
           text: "#e5e5e5",
@@ -23,8 +24,18 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }) {
+      addUtilities({
+        ".text-primary-color": {
+          color: "var(--primary-color)",
+        },
+        ".text-secondary-color": {
+          color: "var(--secondary-color)",
+        },
+      });
+    },
+  ],
 };
 
 export default config;
-

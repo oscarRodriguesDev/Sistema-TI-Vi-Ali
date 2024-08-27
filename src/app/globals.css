@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-color: #1a73e8;
+  --secondary-color: #ff7043;
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+/* Estilos Globais */
+body {
+  @apply bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 font-sans antialiased;
+  margin: 0;
+  padding: 0;
+}
+
+/* Centralizando conteúdo e aplicando margens/paddings responsivos */
+.container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+a {
+  @apply text-primary-color hover:underline;
+  text-decoration: none;
+}
+
+/* Utilitários globais para padding/margin */
+.p-responsive {
+  @apply p-4 sm:p-6 lg:p-8;
+}
+
+.m-responsive {
+  @apply m-4 sm:m-6 lg:m-8;
+}
+
+a:hover{
+    text-decoration: none;
+}
