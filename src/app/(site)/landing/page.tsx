@@ -7,6 +7,7 @@ import { CTA } from "./componentes/cta"
 import { Social } from "./componentes/social"
 import { Footer } from "./componentes/footer"
 import { Title } from "./componentes/title"
+import { Prices } from "./componentes/prices"
 
 
 const Site = () => {
@@ -16,9 +17,10 @@ const Site = () => {
             <Title />
             <Hero />
             <Resources />
+            <Social />
             <Contatos />
             <CTA />
-            <Social />
+            <Prices/>
             <Footer />
 
         </div>

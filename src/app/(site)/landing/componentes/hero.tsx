@@ -2,7 +2,7 @@
 import React from 'react';
 import { useTheme } from '@/app/theme/ThemeContext';
 import Image from 'next/image';
-import hero from '../../../../../public/heroi.webp'
+import hero from '../../../../../public/hero.jpg'
 
 export function Hero() {
   const { theme } = useTheme();
