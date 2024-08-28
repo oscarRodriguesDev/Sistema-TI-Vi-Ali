@@ -1,5 +1,6 @@
 'use client'
 import React, { createContext, useContext, useState, ReactNode } from "react";
+import { CookiesConsent } from "../components/useCookie";
 
 type Theme = "light" | "dark";
 
@@ -28,6 +29,7 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <div className={theme}>
+        <CookiesConsent/>
         {children}
       </div>
     </ThemeContext.Provider>

@@ -1,7 +1,7 @@
 'use client'
 import React from 'react';
 import { useTheme } from '@/app/theme/ThemeContext'; // Certifique-se de ajustar o caminho
-import { ToggleThemeButton } from '@/app/components/switchTeme';
+
 
 export function Header() {
   const { theme, toggleTheme } = useTheme();

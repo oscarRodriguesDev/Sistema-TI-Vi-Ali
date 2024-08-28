@@ -4,7 +4,7 @@ import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram } from "react-icons/fa";
 
 export function Footer() {
   return (
-    <footer className="bg-gray-900 dark:bg-gray-900 text-gray-100 py-12">
+    <footer className="bg-gray-900 border-t-2 border-opacity-5 dark:bg-gray-900 text-gray-100 py-12 border-white">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center mb-8">
           {/* Seção de Assinatura de Newsletter */}

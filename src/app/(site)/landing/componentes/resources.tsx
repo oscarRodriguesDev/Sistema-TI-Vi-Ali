@@ -1,5 +1,9 @@
 'use client'
 import React from 'react';
+import Image from 'next/image';
+import resource1 from '../../../../../public/resources/resources.jpg'
+import resource2 from '../../../../../public/resources/resources2.jpeg'
+import resource3 from '../../../../../public/resources/resources3.webp'
 
 export function Resources() {
   return (
@@ -12,9 +16,7 @@ export function Resources() {
           {/* Recurso 1 */}
           <div className="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-md">
             <div className="flex items-center justify-center mb-4">
-              <svg className="w-12 h-12 text-blue-500 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m4 0h-1m-6 8h4m4-4h4m-6 4v-4m4 0v4m-4-8V9m0 4h-4v-2h4v2z"></path>
-              </svg>
+              <Image src={resource1} alt="Recurso 1" className="w-12 h-12" />
             </div>
             <h2 className="text-xl font-semibold mb-2">Recurso 1</h2>
             <p>
@@ -24,9 +26,7 @@ export function Resources() {
           {/* Recurso 2 */}
           <div className="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-md">
             <div className="flex items-center justify-center mb-4">
-              <svg className="w-12 h-12 text-blue-500 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h1m16 0h1M6 16h12M9 4h6m-3 8h3m-3 0h-3m2-4v8"></path>
-              </svg>
+            <Image src={resource2} alt="Recurso 1" className="w-12 h-12" />
             </div>
             <h2 className="text-xl font-semibold mb-2">Recurso 2</h2>
             <p>
@@ -36,9 +36,7 @@ export function Resources() {
           {/* Recurso 3 */}
           <div className="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-md">
             <div className="flex items-center justify-center mb-4">
-              <svg className="w-12 h-12 text-blue-500 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h-1V6h1v1m2 0h-1v1h1V7m0 4v-1h-1v1m-6 0v-1H8v1m6-5V5H9v1m0 5v-1H8v1m5 3v-1h-1v1m-2-2h1v-1h-1v1m6 2h1v-1h-1v1M7 13H6v-1h1v1z"></path>
-              </svg>
+            <Image src={resource3} alt="Recurso 1" className="w-12 h-12" />
             </div>
             <h2 className="text-xl font-semibold mb-2">Recurso 3</h2>
             <p>

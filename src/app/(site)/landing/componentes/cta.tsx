@@ -1,7 +1,7 @@
 'use client'
 import React from 'react';
 
-export function CTA() {
+export function Cta() {
   return (
     <section className="bg-gray-100 dark:bg-gray-800 py-12 text-center">
       <div className="container mx-auto px-4">
