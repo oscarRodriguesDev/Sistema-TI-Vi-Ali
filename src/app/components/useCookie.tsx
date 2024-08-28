@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 
 export function CookiesConsent() {
-  const [isVisible, setIsVisible] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     // Verifica se o localStorage está disponível
@@ -10,6 +10,8 @@ export function CookiesConsent() {
       const consentGiven = localStorage.getItem('cookiesConsent');
       if (consentGiven) {
         setIsVisible(false);
+      }else{
+        setIsVisible(true);
       }
     }
   }, []);

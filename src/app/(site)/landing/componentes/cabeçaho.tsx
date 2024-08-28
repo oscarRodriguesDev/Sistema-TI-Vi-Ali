@@ -6,6 +6,9 @@ import { useTheme } from '@/app/theme/ThemeContext'; // Certifique-se de ajustar
 export function Header() {
   const { theme, toggleTheme } = useTheme();
 
+
+  
+
   return (
     <header className="fixed top-0 left-0 w-full bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow-md z-50">
       <div className="container mx-auto flex justify-between items-center p-4">

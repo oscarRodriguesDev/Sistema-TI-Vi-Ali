@@ -1,5 +1,5 @@
 'use client'
-import React, { createContext, useContext, useState, ReactNode } from "react";
+import React, { createContext, useContext, useState, useEffect, ReactNode } from "react";
 import { CookiesConsent } from "../components/useCookie";
 
 type Theme = "light" | "dark";
@@ -22,8 +22,30 @@ export const useTheme = () => {
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const [theme, setTheme] = useState<Theme>("light");
 
+  useEffect(() => {
+    const consentGiven = localStorage.getItem('cookiesConsent');
+    if (consentGiven) {
+      const savedTheme = localStorage.getItem('theme') as Theme;
+
+      if (savedTheme) {
+        setTheme(savedTheme);
+      }else{
+        setTheme("light");
+      }
+    }
+  }, []);
+
   const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+    setTheme((prevTheme) => {
+      const newTheme = prevTheme === "light" ? "dark" : "light";
+      
+      const consentGiven = localStorage.getItem('cookiesConsent');
+      if (consentGiven) {
+        localStorage.setItem('theme', newTheme);
+      }
+
+      return newTheme;
+    });
   };
 
   return (
