@@ -1,8 +1,9 @@
+import { Header } from "../components/header/header"
 const Dashboard= ()=>{
     return (
         <>
-         <h1>Cabeçalho</h1>
-         <b>Barra de Navegação: Links ou botões para acessar diferentes seções do painel admin (e.g., Dashboard, Usuários, Configurações)</b>
+         <Header/>
+         <b>Barra de Navegação: Links ou botões para acessar diferentes seções do painel admin (e.g. Usuários, Configurações, status de login, notificação)</b>
          <h1>main</h1>
 
          <h1>Menu de navegação sidebar</h1>

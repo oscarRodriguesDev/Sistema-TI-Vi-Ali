@@ -7,10 +7,11 @@ export function Header() {
   const { theme, toggleTheme } = useTheme();
 
 
-  
+
 
   return (
-    <header className="fixed top-0 left-0 w-full bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow-md z-50">
+    <header className="fixed top-0 left-0 w-full bg-white bg-opacity-80 backdrop-blur-md dark:bg-gray-800 dark:bg-opacity-80 text-gray-900 dark:text-gray-100 shadow-lg z-50">
+
       <div className="container mx-auto flex justify-between items-center p-4">
         {/* Logo */}
         <div className="text-2xl font-bold">
@@ -51,7 +52,7 @@ export function Header() {
             Admin Login
           </a>
         </div>
-    
+
       </div>
     </header>
   );

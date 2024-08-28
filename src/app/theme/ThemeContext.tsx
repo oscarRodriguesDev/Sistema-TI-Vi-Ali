@@ -1,6 +1,6 @@
 'use client'
 import React, { createContext, useContext, useState, useEffect, ReactNode } from "react";
-import { CookiesConsent } from "../components/useCookie";
+import { CookiesConsent } from "../components/conckieconsent/useCookie";
 
 type Theme = "light" | "dark";
 

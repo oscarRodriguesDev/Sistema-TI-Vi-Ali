@@ -1,5 +1,5 @@
 'use client'
-import { Header } from "./componentes/cabeçaho"
+import { Header } from "./componentes/cabecalho"
 import { Hero } from "./componentes/hero"
 import { Resources } from "./componentes/resources"
 import { Contatos } from "./componentes/contact"

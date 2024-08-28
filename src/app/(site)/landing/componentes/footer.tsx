@@ -20,7 +20,7 @@ export function Footer() {
               />
               <button
                 type="submit"
-                className="w-full md:w-auto bg-blue-500 dark:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md hover:bg-blue-600 dark:hover:bg-blue-800 transition duration-300"
+                className="w-full ml-3 md:w-auto bg-blue-500 dark:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md hover:bg-blue-600 dark:hover:bg-blue-800 transition duration-300"
               >
                 Inscreva-se
               </button>
