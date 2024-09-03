@@ -6,28 +6,12 @@ export function Header() {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <header className="fixed top-0 left-0 w-full bg-white bg-opacity-80 backdrop-blur-md dark:bg-gray-800 dark:bg-opacity-80 text-gray-900 dark:text-gray-100 shadow-lg z-50">
+    <header className="fixed top-0 left-0 w-full bg-white  backdrop-blur-md dark:bg-gray-800 dark: text-gray-900 dark:text-gray-100 shadow-lg z-50">
       <div className="container mx-auto flex justify-between items-center p-4">
         {/* Logo */}
         <div className="text-2xl font-bold">
-          <a href="/">Meu Sistema</a>
+          <a href="/dashboard">Painel Admin</a>
         </div>
-
-        {/* Menu de Navegação */}
-        <nav className="flex space-x-4">
-          <a href="/home" className="hover:text-blue-500 dark:hover:text-blue-300">
-            Home
-          </a>
-          <a href="/about" className="hover:text-blue-500 dark:hover:text-blue-300">
-            Sobre
-          </a>
-          <a href="/services" className="hover:text-blue-500 dark:hover:text-blue-300">
-            Serviços
-          </a>
-          <a href="/contact" className="hover:text-blue-500 dark:hover:text-blue-300">
-            Contato
-          </a>
-        </nav>
 
         {/* Opções do Usuário */}
         <div className="flex items-center space-x-4">
@@ -49,7 +33,6 @@ export function Header() {
 
           {/* Foto do Usuário e Status */}
           <div className="flex items-center space-x-2">
-            {/* Foto do usuário representada por um SVG simples */}
             <svg
               className="w-8 h-8 text-gray-900 dark:text-gray-100"
               fill="currentColor"
@@ -67,12 +50,12 @@ export function Header() {
             </span>
           </div>
 
-          {/* Link para o Painel Admin */}
+          {/* Logout */}
           <a
-            href="/admin"
-            className="px-4 py-2 rounded-md bg-blue-500 dark:bg-blue-700 text-white hover:bg-blue-600 dark:hover:bg-blue-800"
+            href="/logout"
+            className="px-4 py-2 rounded-md bg-red-500 dark:bg-red-700 text-white hover:bg-red-600 dark:hover:bg-red-800"
           >
-            Admin
+            Logout
           </a>
         </div>
       </div>

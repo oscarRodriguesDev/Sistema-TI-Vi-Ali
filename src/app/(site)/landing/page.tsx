@@ -13,7 +13,7 @@ import { Prices } from "./componentes/prices"
 const Site = () => {
     return (
         <div>
-            <Header />
+            <Header />  {/* aqui vou verificar se esta logado */}
             <Title />
             <Hero />
             <Resources />
