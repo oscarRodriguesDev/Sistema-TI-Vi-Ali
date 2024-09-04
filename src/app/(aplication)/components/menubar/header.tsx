@@ -1,5 +1,4 @@
 'use client'
-import React from 'react';
 import { useTheme } from '@/app/theme/ThemeContext'; // Certifique-se de ajustar o caminho
 
 export function Header() {

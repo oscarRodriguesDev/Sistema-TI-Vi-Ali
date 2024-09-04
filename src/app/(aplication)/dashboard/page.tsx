@@ -1,13 +1,16 @@
 import { Main } from "../components/main/main"
 import { DefaultLayout } from "../components/defaultlayout/defaultlayout"
 
-const Dashboard= ()=>{
+const Dashboard = () => {
     return (
         <>
-       <DefaultLayout>
-        <Main/>
-        </DefaultLayout>
-     </>
+            <DefaultLayout>
+              
+                    <Main />
+
+            
+            </DefaultLayout>
+        </>
     )
 }
 
