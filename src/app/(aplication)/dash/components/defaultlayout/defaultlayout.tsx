@@ -1,6 +1,7 @@
 
 // src/components/defaultlayout/defaultlayout.tsx
 import { Header } from "../menubar/header";
+import { SubMenu } from "../menubar/subMenu";
 import { Sidebar } from "../sidebar/sidebar";
 
 
@@ -10,8 +11,9 @@ export function DefaultLayout({ children }: { children: React.ReactNode }) {
         <div className="flex flex-col h-screen">
             <Header />
             <div className="flex flex-1">
-                <Sidebar />
-                <main className="flex-1 overflow-y-auto p-4 bg-gray-100 dark:bg-gray-900">
+               <Sidebar />
+                <main className="flex-1 overflow-y-hidden p-4 dark:bg-gray-900">
+                  <SubMenu/>
                     {children}
                 </main>
             </div>

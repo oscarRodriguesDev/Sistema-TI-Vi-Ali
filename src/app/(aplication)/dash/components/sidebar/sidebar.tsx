@@ -9,27 +9,27 @@ export function Sidebar() {
       <nav className="mt-5">
         <ul className="space-y-2">
           <li>
-            <a href="/dashboard/overview" className="block p-2 text-gray-900 dark:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md">
+            <a href="/dash/dashboard" className="block p-2 text-gray-900 dark:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md">
               Visão Geral
             </a>
           </li>
           <li>
-            <a href="/dashboard/analytics" className="block p-2 text-gray-900 dark:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md">
+            <a href="/dash/analitics" className="block p-2 text-gray-900 dark:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md">
               Analytics
             </a>
           </li>
           <li>
-            <a href="/dashboard/settings" className="block p-2 text-gray-900 dark:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md">
+            <a href="/dash/settings" className="block p-2 text-gray-900 dark:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md">
               Configurações
             </a>
           </li>
           <li>
-            <a href="/dashboard/profile" className="block p-2 text-gray-900 dark:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md">
+            <a href="/dash/perfil" className="block p-2 text-gray-900 dark:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md">
               Perfil
             </a>
           </li>
           <li>
-            <a href="/dashboard/support" className="block p-2 text-gray-900 dark:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md">
+            <a href="/dash/suporte" className="block p-2 text-gray-900 dark:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md">
               Suporte
             </a>
           </li>
