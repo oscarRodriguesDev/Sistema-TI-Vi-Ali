@@ -11,6 +11,6 @@ export default function Suporte(){
 
             </div>
 
-        </DefaultLayout>
+        </DefaultLayout> 
     )
 }
