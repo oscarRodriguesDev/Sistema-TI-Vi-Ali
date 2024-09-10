@@ -22,12 +22,24 @@ export function Main() {
   return (
     <main className="h-full flex-1 p-3 sm:p-10 lg:p-28 bg-white dark:bg-gray-900 overflow-y-auto">
       <div className="container grid grid-cols-1 sm:grid-cols-2 gap-10 sm:gap-16 mx-auto">
-        <GraficoPie />
-        <GraficoBarras />
-        <GraficoFunil />
-        <GraficoDispersao />
-        <GraficoRadar />
-        <GraficoLinhas/>
+        <div className="flex items-center justify-center w-full h-auto">
+          <GraficoPie />
+        </div>
+        <div className="flex items-center justify-center w-full h-auto">
+          <GraficoBarras />
+        </div>
+        <div className="flex items-center justify-center w-full h-auto">
+          <GraficoFunil />
+        </div>
+        <div className="flex items-center justify-center w-full h-auto">
+          <GraficoDispersao />
+        </div>
+        <div className="flex items-center justify-center w-full h-auto">
+          <GraficoRadar />
+        </div>
+        <div className="flex items-center justify-center w-full h-auto">
+          <GraficoLinhas />
+        </div>
       </div>
     </main>
   );

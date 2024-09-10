@@ -1,14 +1,28 @@
 'use client'
 import { useTheme } from '@/app/theme/ThemeContext'; // Certifique-se de ajustar o caminho
+import Image from 'next/image';
+import Logo from '../../../../../../public/icons/icoSite.png'
+import LogoutButton from '../logauth/logout';
+
+
 
 export function Header() {
   const { theme, toggleTheme } = useTheme();
 
   return (
     <header className="fixed top-0 left-0 w-full bg-white  backdrop-blur-md dark:bg-gray-800 dark: text-gray-900 dark:text-gray-100 shadow-lg z-50">
-      <div className="container mx-auto flex justify-between items-center p-4">
+      <div className=" container mx-auto flex justify-between items-center p-4">
+
         {/* Logo */}
-        <div className="text-2xl font-bold">
+
+        <div className="text-2xl font-bold flex  w-2/4 ">
+          <Image 
+          className=' fixed mr-9 left-8 rounded-md' 
+          src={Logo}
+          alt=''
+          width={50}
+          height={50} 
+          />
           <a href="/dashboard">Painel Admin</a>
         </div>
 
@@ -50,12 +64,7 @@ export function Header() {
           </div>
 
           {/* Logout */}
-          <a
-            href="/logout"
-            className="px-4 py-2 rounded-md bg-red-500 dark:bg-red-700 text-white hover:bg-red-600 dark:hover:bg-red-800"
-          >
-            Logout
-          </a>
+         <LogoutButton/>
         </div>
       </div>
     </header>

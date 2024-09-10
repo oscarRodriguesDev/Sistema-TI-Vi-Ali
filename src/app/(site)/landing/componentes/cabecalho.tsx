@@ -46,7 +46,7 @@ export function Header() {
 
           {/* Link para Login */}
           <a
-            href="/admin"
+            href="/landing/admin"
             className="px-4 py-2 rounded-md bg-blue-500 dark:bg-blue-700 text-white hover:bg-blue-600 dark:hover:bg-blue-800"
           >
             Admin Login

@@ -11,7 +11,7 @@ export function GraficoFunil() {
   ];
 
   return (
-    <div className="h-full min-h-[400px] max-h-[100%] w-full min-w-[600px] max-w-[100%] p-6 mt-6 bg-gradient-to-r from-gray-800 via-gray-900 to-black dark:from-gray-900 dark:via-black dark:to-gray-800 rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300">
+    <div className="h-full min-h-[400px] w-full p-6 mt-6 bg-gradient-to-r from-gray-800 via-gray-900 to-black dark:from-gray-900 dark:via-black dark:to-gray-800 rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300">
       <h1 className="text-3xl font-bold text-white dark:text-gray-100 mb-6 text-center">
         Gráfico de Funil
       </h1>
@@ -22,7 +22,7 @@ export function GraficoFunil() {
           margin={{ top: 20, right: 30, left: 20, bottom: 20 }}
         >
           <XAxis type="number" tick={{ fill: '#fff' }} />
-          <YAxis type="category" dataKey="stage" tick={{ fill: '#fff' }} />
+          <YAxis type="category" dataKey="stage" tick={{ fill: '#fff' }} width={120} />
           <Tooltip cursor={{ fill: 'rgba(255, 255, 255, 0.1)' }} />
           <Bar dataKey="value" fill="#8884d8" radius={[10, 10, 0, 0]}>
             <LabelList dataKey="value" position="right" fill="#fff" />

@@ -12,8 +12,8 @@ export function DefaultLayout({ children }: { children: React.ReactNode }) {
             <Header />
             <div className="flex flex-1">
                <Sidebar />
+                {/*   <SubMenu/> */}
                 <main className="flex-1 overflow-y-hidden p-4 dark:bg-gray-900">
-                  <SubMenu/>
                     {children}
                 </main>
             </div>
