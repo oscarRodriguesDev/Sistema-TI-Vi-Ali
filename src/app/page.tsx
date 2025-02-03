@@ -1,11 +1,27 @@
-import Image from "next/image";
+// components
+import { Navbar,Footer } from "./(site)/landing/components";
 
-export default function Home() {
+// sections
+import Hero from "./(site)/landing/hero"; 
+import SponsoredBy from "./(site)/landing/sponsored-by";
+import AboutEvent from "./(site)/landing/about-event";
+import OurStats from "./(site)/landing/our-stats";
+import EventContent from "./(site)/landing/event-content";
+import Faq from "./(site)/landing/faq";
+
+
+export default function Site() {
   return (
-   <main>
-    <div>
-      <h1>page principal</h1>
-    </div>
-   </main>
+    <>
+     
+      <Navbar />
+      <Hero />
+      <SponsoredBy />
+      <AboutEvent />
+      <OurStats />
+      <EventContent />
+      <Faq />
+      <Footer />
+    </>
   );
 }
