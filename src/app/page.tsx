@@ -13,15 +13,19 @@ import Faq from "./(site)/landing/faq";
 export default function Site() {
   return (
     <>
+     <Navbar />
+     <Hero />
      
-      <Navbar />
+    
+    </>
+  );
+}
+
+/*   <Navbar />
       <Hero />
       <SponsoredBy />
       <AboutEvent />
       <OurStats />
       <EventContent />
       <Faq />
-      <Footer />
-    </>
-  );
-}
+      <Footer /> */

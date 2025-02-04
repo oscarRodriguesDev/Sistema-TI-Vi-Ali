@@ -12,29 +12,39 @@ export default function SignIn() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const result = await signIn('credentials', {
-      redirect: false,
-      email,
-      password,
-    });
+    setError('');
 
-    if (result?.error) {
-      setError('❌ Credenciais inválidas, tente novamente.');
-    } else {
-      router.push('/dash/dashboard'); // Redirecionamento com Next.js
+    try {
+      const result = await signIn('credentials', {
+        redirect: false, // Evita redirecionamento automático
+        email,
+        password,
+      });
+
+      if (result?.error) {
+        setError('❌ Credenciais inválidas, tente novamente.');
+      } else {
+        router.push('/dash/dashboard');
+      }
+    } catch (err) {
+      setError('❌ Erro ao tentar fazer login.');
     }
   };
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-100 px-4">
       <div className="w-full max-w-md rounded-lg bg-white p-8 shadow-lg">
-        <h2 className="mb-6 text-center text-2xl font-bold text-gray-700">Bem-vindo de volta! 👋</h2>
+        <h2 className="mb-6 text-center text-2xl font-bold text-gray-700">
+          Bem-vindo de volta! 👋
+        </h2>
 
-        {/* Formulário de Login */}
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="mb-1 block text-sm font-medium text-gray-600">Email</label>
+            <label htmlFor="email" className="mb-1 block text-sm font-medium text-gray-600">
+              Email
+            </label>
             <input
+              id="email"
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -45,8 +55,11 @@ export default function SignIn() {
           </div>
 
           <div>
-            <label className="mb-1 block text-sm font-medium text-gray-600">Senha</label>
+            <label htmlFor="password" className="mb-1 block text-sm font-medium text-gray-600">
+              Senha
+            </label>
             <input
+              id="password"
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -56,7 +69,6 @@ export default function SignIn() {
             />
           </div>
 
-          {/* Mensagem de erro */}
           {error && <p className="mt-2 text-center text-sm font-medium text-red-500">{error}</p>}
 
           <button
@@ -67,14 +79,12 @@ export default function SignIn() {
           </button>
         </form>
 
-        {/* Separador */}
         <div className="my-6 flex items-center">
           <hr className="flex-grow border-gray-300" />
           <span className="mx-3 text-sm text-gray-500">ou</span>
           <hr className="flex-grow border-gray-300" />
         </div>
 
-        {/* Botão de Login com Google */}
         <button
           onClick={() => signIn('google')}
           className="flex w-full items-center justify-center gap-2 rounded-lg bg-blue-600 px-4 py-2 text-white transition hover:bg-blue-700"

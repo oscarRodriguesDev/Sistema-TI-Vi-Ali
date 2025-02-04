@@ -1,133 +1,94 @@
 'use client'
 
-import React from "react";
-import {
-  Navbar as MTNavbar,
-  Collapse,
-  Button,
-  IconButton,
-  Typography,
-} from "@material-tailwind/react";
-import {
-  RectangleStackIcon,
-  UserCircleIcon,
-  CommandLineIcon,
-  Squares2X2Icon,
-  XMarkIcon,
-  Bars3Icon,
-} from "@heroicons/react/24/solid";
-
-
-interface NavItemProps {
-  children: React.ReactNode;
-  href?: string;
-}
-
-function NavItem({ children, href }: NavItemProps) {
-  return (
-    <li>
-      <Typography
-        as="a"
-        href={href || "#"}
-        target={href ? "_blank" : "_self"}
-        variant="paragraph"
-        className="flex items-center gap-2 font-medium"
-        placeholder=""
-        onPointerEnterCapture={() => { }}
-        onPointerLeaveCapture={() => { }}
-      >
-        {children}
-      </Typography>
-    </li>
-  );
-}
+import React, { useState, useEffect } from "react";
 
 const NAV_MENU = [
-  {
-    name: "Page",
-    icon: RectangleStackIcon,
-    href: "/#",
-  },
-  {
-    name: "Account",
-    icon: UserCircleIcon,
-    href: "/#",
-  },
-  {
-    name: "Docs",
-    icon: CommandLineIcon,
-    href: "/#",
-  },
+  { name: "Home", href: "/" },
+  { name: "Sobre", href: "/#" },
+  { name: "Docs", href: "/#" },
+  { name: "Login", href: "/landing/admin" },
 ];
 
-
 export function Navbar() {
-  const [open, setOpen] = React.useState(false);
-  const [isScrolling, setIsScrolling] = React.useState(false);
+  const [open, setOpen] = useState(false);
+  const [isScrolling, setIsScrolling] = useState(false);
 
-  const handleOpen = () => setOpen((cur) => !cur);
+  // Alternar menu mobile
+  const handleOpen = () => setOpen(!open);
 
-  React.useEffect(() => {
-    window.addEventListener(
-      "resize",
-      () => window.innerWidth >= 960 && setOpen(false)
-    );
+  // Detectar scroll para mudar o estilo da Navbar
+  useEffect(() => {
+    const handleScroll = () => setIsScrolling(window.scrollY > 10);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-
-
   return (
-
-    <MTNavbar
-      shadow={false}
-      fullWidth
-      blurred={false}
-      color={isScrolling ? "white" : "transparent"}
-      className="fixed top-0 z-50 border-0"
-      placeholder=""
-      onPointerEnterCapture={() => { }}
-      onPointerLeaveCapture={() => { }}
+    <nav
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        isScrolling ? "bg-white shadow-md" : "bg-transparent"
+      }`}
     >
+      <div className="container mx-auto flex items-center justify-between p-4">
+        {/* Logo */}
+        <a href="/" className={`text-xl font-bold transition-colors ${
+          isScrolling ? "text-gray-900" : "text-white"
+        }`}>
+          Minha Marca
+        </a>
 
-
-      <div className="container mx-auto flex items-center justify-between">
-        <Typography
-          color={isScrolling ? "blue-gray" : "white"}
-          className="text-lg font-bold"
-          as="a"
-          href="#"
-          variant="small"
-          placeholder=""
-          onPointerEnterCapture={() => { }}
-          onPointerLeaveCapture={() => { }}
-        >
-          Nome da aplicação
-        </Typography>
-        <ul
-          className={`ml-10 hidden items-center gap-6 lg:flex ${isScrolling ? "text-gray-900" : "text-white"
-            }`}
-        >
-          {NAV_MENU.map(({ name, icon: Icon, href }) => (
-            <NavItem key={name} href={href}>
-              <Icon className="h-5 w-5" />
-              <span>{name}</span>
-            </NavItem>
+        {/* Menu Desktop */}
+        <ul className="hidden lg:flex space-x-8">
+          {NAV_MENU.map(({ name, href }) => (
+            <li key={name}>
+              <a
+                href={href}
+                className={`text-lg font-medium transition-colors ${
+                  isScrolling
+                    ? "text-gray-900 hover:text-blue-600"
+                    : "text-white hover:text-gray-300"
+                }`}
+              >
+                {name}
+              </a>
+            </li>
           ))}
         </ul>
-        <div className="hidden items-center gap-4 lg:flex">
 
-          <a href="/landing/admin">Log in </a>
+        {/* Menu Mobile (Botão de abrir) */}
+        <button
+          className="lg:hidden text-white focus:outline-none"
+          onClick={handleOpen}
+        >
+          {open ? (
+            <span className="text-2xl">✕</span>
+          ) : (
+            <span className="text-2xl">☰</span>
+          )}
+        </button>
+      </div>
 
+      {/* Menu Mobile */}
+      {open && (
+        <div className="lg:hidden bg-white shadow-md">
+          <ul className="flex flex-col items-center gap-4 py-4">
+            {NAV_MENU.map(({ name, href }) => (
+              <li key={name}>
+                <a
+                  href={href}
+                  className="text-lg font-medium text-gray-900 hover:text-blue-600"
+                  onClick={() => setOpen(false)}
+                >
+                  {name}
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
-
-      </div> 
-
-
-
-
-
-    </MTNavbar>
+      )}
+    </nav>
   );
 }
 
 export default Navbar;
+
