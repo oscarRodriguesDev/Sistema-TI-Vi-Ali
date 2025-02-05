@@ -1,8 +1,10 @@
 // components
-import { Navbar,Footer } from "./(site)/landing/components";
+'use Client'
+import { Navbar, Footer } from "./(site)/landing/components";
+import MeetPage from "./(site)/landing/meetspace";
 
 // sections
-import Hero from "./(site)/landing/hero"; 
+import Hero from "./(site)/landing/hero";
 import SponsoredBy from "./(site)/landing/sponsored-by";
 import AboutEvent from "./(site)/landing/about-event";
 import OurStats from "./(site)/landing/our-stats";
@@ -13,15 +15,16 @@ import Faq from "./(site)/landing/faq";
 export default function Site() {
   return (
     <>
-     <Navbar />
-     <Hero />
-     
-    
+      <Hero />
+
+
     </>
   );
 }
 
-/*   <Navbar />
+/*   
+<Navbar />
+<MeetPage/>
       <Hero />
       <SponsoredBy />
       <AboutEvent />
