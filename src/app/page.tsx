@@ -1,5 +1,5 @@
 // components
-'use Client'
+'use client'
 import { Navbar, Footer } from "./(site)/landing/components";
 import MeetPage from "./(site)/landing/meetspace";
 
@@ -16,6 +16,7 @@ export default function Site() {
   return (
     <>
       <Hero />
+      <Navbar />
 
 
     </>

@@ -15,9 +15,9 @@ export async function AuthProvider({ children }: AuthProviderProps) {
   const session = await getServerSession(authOptions);
 
   // Se não estiver autenticado, redireciona para login
-  if (!session) {
-    redirect('/landing');
-  }
+/*   if (!session) {
+    redirect('/');
+  } */
 
 
   return <>{children}</>;

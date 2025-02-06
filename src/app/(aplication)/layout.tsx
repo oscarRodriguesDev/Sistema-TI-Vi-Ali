@@ -18,8 +18,8 @@ export default function RootLayout({
 <AuthProvider>
 
         {children}
-
 </AuthProvider>
+
 
 
 {/* apenas um teste */}
