@@ -12,8 +12,8 @@ interface FormData {
 
 const CalendarPage = () => {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
-  const [formData, setFormData] = useState<{ [key: string]: FormData }>({});
-  const [editingDate, setEditingDate] = useState<Date | null>(null); // Estado para saber qual data está sendo editada
+  const [formData, setFormData] = useState<{ [key: string]: FormData[] }>({}); // Agora será uma lista de reuniões
+  const [editingDate, setEditingDate] = useState<Date | null>(null);
   const { register, handleSubmit, formState: { errors }, setValue } = useForm<FormData>();
 
   // Função para gerar os dias do mês como botões
@@ -38,12 +38,13 @@ const CalendarPage = () => {
       setEditingDate(null); // Se o mesmo dia for clicado, fecha o formulário
     } else {
       setEditingDate(date);
-      const dateString = date.toISOString().split('T')[0]; // Formata a data como string (yyyy-mm-dd)
+      const dateString = date.toISOString().split('T')[0];
       setSelectedDate(date);
       if (formData[dateString]) {
-        setValue('meetingWith', formData[dateString].meetingWith);
-        setValue('meetingTime', formData[dateString].meetingTime);
-        setValue('guestEmail', formData[dateString].guestEmail);
+        const latestMeeting = formData[dateString][formData[dateString].length - 1]; // Pega o último agendamento
+        setValue('meetingWith', latestMeeting.meetingWith);
+        setValue('meetingTime', latestMeeting.meetingTime);
+        setValue('guestEmail', latestMeeting.guestEmail);
       }
     }
   };
@@ -54,7 +55,7 @@ const CalendarPage = () => {
       const dateString = selectedDate.toISOString().split('T')[0]; // Formata a data como string (yyyy-mm-dd)
       setFormData((prev) => ({
         ...prev,
-        [dateString]: data,
+        [dateString]: prev[dateString] ? [...prev[dateString], data] : [data], // Adiciona a reunião ao array
       }));
     }
   };
@@ -69,19 +70,17 @@ const CalendarPage = () => {
         <div className="grid grid-cols-7 gap-2 mb-52">
           {generateDays().map((date, index) => {
             const dateString = date.toISOString().split('T')[0];
-            const hasMeeting = formData[dateString]; // Verifica se já há dados para a reunião nesse dia
+            const hasMeeting = formData[dateString]; // Verifica se já há reuniões para este dia
             const isEditing = editingDate && editingDate.getTime() === date.getTime(); // Verifica se o dia está sendo editado
             const meetingInfo = hasMeeting
-              ? `${formData[dateString]?.meetingWith} - ${formData[dateString]?.meetingTime}`
+              ? `${formData[dateString].length} reunião(ões)`
               : 'Sem reunião';
 
             return (
               <div key={index} className="relative">
-                {/* label acima informando o dia */}
                 <label className="bg-blue-600 w-10 text-white p-2 rounded-full mb-2 text-lg text-center">
                   {String(date.getDate()).padStart(2, '0')}
                 </label>
-                {/* Botão do dia */}
                 <button
                   onClick={() => handleDayClick(date)}
                   className={`w-full h-40 bg-gray-200 rounded-lg mb-5 mt-3 hover:bg-gray-300 transition relative ${isEditing ? 'bg-gray-400' : ''}`}
@@ -91,7 +90,7 @@ const CalendarPage = () => {
                   </div>
                 </button>
 
-                {/* Card de informações */}
+                {/* Exibe as reuniões do dia */}
                 {isEditing && (
                   <div className="absolute top-0 left-0 w-[400px] h-[450px] bg-white rounded-lg shadow-lg p-4 flex flex-col z-10 overflow-auto">
                     <h3 className="text-lg font-semibold mb-2">Detalhes da Reunião</h3>
